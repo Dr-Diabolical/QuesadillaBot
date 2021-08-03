@@ -1,0 +1,36 @@
+{
+    "recipe": "quesadilla",
+    "timetoprepare": "10 minutes (depending on addons)",
+    "feeds": "1 person",
+    "utencils": "Stove, frying pan, plate, spatula",
+    "ingredients": "Tortilla, cheese and addons",
+    "steps": [
+        {
+            "text": "Place a non-stick frying pan onto the stove"
+        },
+        {
+            "text": "Spread a light layer of butter onto the frying pan"
+        },
+        {
+            "text": "Set a plate near the stove and place a tortilla on it"
+        },
+        {
+            "text": "Spread cheese and other addons onto the tortilla"
+        },
+        {
+            "text": "Place another tortilla ontop of the first tortilla"
+        },
+        {
+            "text": "Turn the stove to low"
+        },
+        {
+            "text": "Place the uncooked quesadilla onto the stove gently, ensure that ingredients inside the tortillas do not fall out"
+        },
+        {
+            "text": "Every minute, flip the quesadilla until the tortillas are of desired level of cooked"
+        },
+        {
+            "text": "Turn off stove, and serve!"
+        }
+    ]
+}
