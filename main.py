@@ -9,16 +9,15 @@ QBot = commands.Bot(command_prefix="$")
 # Cooking variables
 QBot.is_cooking = False
 QBot.cooking_step = 0
-QBot.recipe
 
 # Bot startup status event
 @QBot.event
 async def on_ready():
     print("QuesadillaBot up and ready to cook!")
     # Load recipe data
-    # TODO: Do something with the data
-    with open("recipe.json", "r") as recipe_data:
-        QBot.recipe = recipe_data
+    # TODO: Change from txt to json
+    with open("recipe.txt", "r") as recipe_data:
+        QBot.recipe = recipe_data.readlines()
 
 # On_Message Commands
 # startcooking: begins the process of displaying the steps to cooking a quesadilla
@@ -26,7 +25,7 @@ async def on_ready():
 async def startcooking(ctx):
     QBot.is_cooking = True
     QBot.cooking_step = 0
-    await ctx.send("First step here")
+    await ctx.send(QBot.recipe[QBot.cooking_step])
 
 # stopcooking: stops the process of displaying the steps to cooking a quesadilla
 @QBot.command(aliases=["stop"])
@@ -40,9 +39,13 @@ async def stopcooking(ctx):
 async def nextstep(ctx):
     if (QBot.is_cooking):
         QBot.cooking_step += 1
-        await ctx.send("Next step here")
+        await ctx.send(QBot.recipe[QBot.cooking_step])
+        # TODO: Make checking if cooking is complete cleaner
+        if ((QBot.cooking_step + 1) > (len(QBot.recipe) - 1)):
+            QBot.is_cooking = False
+            await ctx.send("Cooking complete !")
     else:
-        await ctx.send("No quesadilla is being made right now.") 
+        await ctx.send("No quesadilla is being made right now.")
 
 # Obtain discord bot key
 with open("key.txt", "r") as key_data:
